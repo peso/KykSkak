@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Rules.gd" type="Script" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://clock-arm-center.png" type="Texture" id=6]
 [ext_resource path="res://clock-arm-min.png" type="Texture" id=7]
 [ext_resource path="res://clock-arm-hour.png" type="Texture" id=8]
+[ext_resource path="res://Clock.gd" type="Script" id=9]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.109804, 0.109804, 0.121569, 1 )
@@ -194,6 +195,7 @@ margin_left = 65.0
 margin_right = 308.0
 margin_bottom = 239.0
 texture_normal = ExtResource( 5 )
+script = ExtResource( 9 )
 
 [node name="Hour" type="Sprite" parent="Margin/DragSplit/DragSplit/Settings/Margin/List/GameClocks/LeftClock"]
 position = Vector2( 122.776, 117.624 )
@@ -225,6 +227,7 @@ margin_right = 599.0
 margin_bottom = 239.0
 shortcut_in_tooltip = false
 texture_normal = ExtResource( 5 )
+script = ExtResource( 9 )
 
 [node name="Hour" type="Sprite" parent="Margin/DragSplit/DragSplit/Settings/Margin/List/GameClocks/RightClock"]
 position = Vector2( 122.776, 117.624 )
