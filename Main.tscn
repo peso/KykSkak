@@ -4,6 +4,10 @@
 [ext_resource path="res://Main.gd" type="Script" id=2]
 [ext_resource path="res://InPlay.gd" type="Script" id=3]
 [ext_resource path="res://pop.wav" type="AudioStream" id=4]
+[ext_resource path="res://clock-inset.png" type="Texture" id=5]
+[ext_resource path="res://clock-arm-center.png" type="Texture" id=6]
+[ext_resource path="res://clock-arm-min.png" type="Texture" id=7]
+[ext_resource path="res://clock-arm-hour.png" type="Texture" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.109804, 0.109804, 0.121569, 1 )
