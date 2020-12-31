@@ -24,6 +24,7 @@ func _on_Timer_timeout():
 func _new_rule():
 	current_rule = rules.get_rule()
 	if current_rule:
+		$NotifySound.play()
 		$AcceptRule/Text.text = "Vil du acceptere reglen:\n" + current_rule.name
 		$AcceptRule/Text.hint_tooltip = current_rule.description
 		$AcceptRule.popup()
