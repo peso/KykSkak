@@ -202,40 +202,46 @@ min_value = 10.0
 value = 90.0
 rounded = true
 
-[node name="MatchSetting" type="HBoxContainer" parent="Margin/DragSplit/DragSplit/Settings/Margin/List"]
-margin_top = 245.0
+[node name="HSeparator" type="HSeparator" parent="Margin/DragSplit/DragSplit/Settings/Margin/List"]
+margin_top = 231.0
 margin_right = 664.0
-margin_bottom = 277.0
+margin_bottom = 235.0
+
+[node name="MatchSetting" type="HBoxContainer" parent="Margin/DragSplit/DragSplit/Settings/Margin/List"]
+margin_top = 239.0
+margin_right = 664.0
+margin_bottom = 271.0
 rect_min_size = Vector2( 0, 32 )
 custom_constants/separation = 10
 alignment = 1
 
 [node name="Start" type="Button" parent="Margin/DragSplit/DragSplit/Settings/Margin/List/MatchSetting"]
-margin_left = 249.0
-margin_right = 290.0
+margin_left = 225.0
+margin_right = 286.0
 margin_bottom = 32.0
-hint_tooltip = "Start game"
-text = "Start"
+hint_tooltip = "Start et nyt spil. Der kommer regelmæssigt nye regler "
+text = "Nyt spil"
 
 [node name="Stop" type="Button" parent="Margin/DragSplit/DragSplit/Settings/Margin/List/MatchSetting"]
-margin_left = 300.0
-margin_right = 340.0
+margin_left = 296.0
+margin_right = 363.0
 margin_bottom = 32.0
-hint_tooltip = "Stop spillet"
-text = "Stop"
+hint_tooltip = "Afslut spillet"
+text = "Stop spil"
 
 [node name="NewRule" type="Button" parent="Margin/DragSplit/DragSplit/Settings/Margin/List/MatchSetting"]
-margin_left = 350.0
-margin_right = 415.0
+margin_left = 373.0
+margin_right = 438.0
 margin_bottom = 32.0
+hint_tooltip = "Aktiver en ny regel fra regellisten med det samme."
 text = "Ny regel"
 
 [node name="Progress" type="ProgressBar" parent="Margin/DragSplit/DragSplit/Settings/Margin/List"]
-anchor_right = 1.0
-margin_top = 280.0
-margin_right = 6.10352e-05
-margin_bottom = 312.0
+margin_top = 275.0
+margin_right = 664.0
+margin_bottom = 307.0
 rect_min_size = Vector2( 0, 32 )
+hint_tooltip = "Hvor tæt er vi på at få næste regel?"
 value = 50.0
 
 [node name="GameClocks" type="HBoxContainer" parent="Margin/DragSplit/DragSplit/Settings/Margin/List"]
