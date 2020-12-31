@@ -177,6 +177,31 @@ step = 5.0
 value = 300.0
 rounded = true
 
+[node name="RuleInterval" type="HBoxContainer" parent="Margin/DragSplit/DragSplit/Settings/Margin/List"]
+margin_top = 195.0
+margin_right = 664.0
+margin_bottom = 227.0
+rect_min_size = Vector2( 0, 32 )
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="Margin/DragSplit/DragSplit/Settings/Margin/List/RuleInterval"]
+margin_left = 216.0
+margin_top = 9.0
+margin_right = 364.0
+margin_bottom = 23.0
+hint_tooltip = "Tid der går mellem at en ny regel bliver introduceret"
+mouse_filter = 1
+text = "Sek. mellem nye regler"
+
+[node name="SpinBox" type="SpinBox" parent="Margin/DragSplit/DragSplit/Settings/Margin/List/RuleInterval"]
+margin_left = 374.0
+margin_right = 448.0
+margin_bottom = 32.0
+min_value = 10.0
+value = 90.0
+rounded = true
+
 [node name="MatchSetting" type="HBoxContainer" parent="Margin/DragSplit/DragSplit/Settings/Margin/List"]
 margin_top = 245.0
 margin_right = 664.0
@@ -380,6 +405,7 @@ __meta__ = {
 stream = ExtResource( 4 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="value_changed" from="Margin/DragSplit/DragSplit/Settings/Margin/List/GameLength/SpinBox" to="." method="_on_GameTime_value_changed"]
+[connection signal="value_changed" from="Margin/DragSplit/DragSplit/Settings/Margin/List/RuleInterval/SpinBox" to="." method="_on_RuleTime_value_changed"]
 [connection signal="pressed" from="Margin/DragSplit/DragSplit/Settings/Margin/List/MatchSetting/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Margin/DragSplit/DragSplit/Settings/Margin/List/MatchSetting/Stop" to="." method="_on_Stop_pressed"]
 [connection signal="pressed" from="Margin/DragSplit/DragSplit/Settings/Margin/List/MatchSetting/NewRule" to="." method="_on_NewRule_pressed"]

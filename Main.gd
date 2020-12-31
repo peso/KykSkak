@@ -77,3 +77,7 @@ func _on_NewRule_pressed():
 
 func _on_GameTime_value_changed(value):
 	clocks.time_per_player = value
+
+
+func _on_RuleTime_value_changed(value):
+	timer_time = value
