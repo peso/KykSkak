@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/clock-inset.png-a0cf9f3cb4838c12f5f99954d5c85fdf.stex"
+path="res://.import/clock-inset-normal.png-4d24a2ce2c762a58bec7961fc168ff2d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://clock-inset.png"
-dest_files=[ "res://.import/clock-inset.png-a0cf9f3cb4838c12f5f99954d5c85fdf.stex" ]
+source_file="res://clock-inset-normal.png"
+dest_files=[ "res://.import/clock-inset-normal.png-4d24a2ce2c762a58bec7961fc168ff2d.stex" ]
 
 [params]
 

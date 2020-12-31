@@ -1,14 +1,16 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Rules.gd" type="Script" id=1]
 [ext_resource path="res://Main.gd" type="Script" id=2]
 [ext_resource path="res://InPlay.gd" type="Script" id=3]
 [ext_resource path="res://pop.wav" type="AudioStream" id=4]
-[ext_resource path="res://clock-inset.png" type="Texture" id=5]
 [ext_resource path="res://clock-arm-center.png" type="Texture" id=6]
 [ext_resource path="res://clock-arm-min.png" type="Texture" id=7]
 [ext_resource path="res://clock-arm-hour.png" type="Texture" id=8]
 [ext_resource path="res://Clock.gd" type="Script" id=9]
+[ext_resource path="res://GameClocks.gd" type="Script" id=10]
+[ext_resource path="res://clock-inset-focus.png" type="Texture" id=11]
+[ext_resource path="res://clock-inset-normal.png" type="Texture" id=12]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.109804, 0.109804, 0.121569, 1 )
@@ -148,6 +150,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="GameLength" type="HBoxContainer" parent="Margin/DragSplit/DragSplit/Settings/Margin/List"]
+margin_top = 159.0
+margin_right = 664.0
+margin_bottom = 191.0
+rect_min_size = Vector2( 0, 32 )
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="Margin/DragSplit/DragSplit/Settings/Margin/List/GameLength"]
+margin_left = 255.0
+margin_top = 9.0
+margin_right = 325.0
+margin_bottom = 23.0
+hint_tooltip = "Den tid hver spiller får når man starter et nyt spil"
+mouse_filter = 1
+text = "Sek. pr spil"
+
+[node name="SpinBox" type="SpinBox" parent="Margin/DragSplit/DragSplit/Settings/Margin/List/GameLength"]
+margin_left = 335.0
+margin_right = 409.0
+margin_bottom = 32.0
+min_value = 5.0
+max_value = 720.0
+step = 5.0
+value = 300.0
+rounded = true
+
 [node name="MatchSetting" type="HBoxContainer" parent="Margin/DragSplit/DragSplit/Settings/Margin/List"]
 margin_top = 245.0
 margin_right = 664.0
@@ -185,16 +214,19 @@ rect_min_size = Vector2( 0, 32 )
 value = 50.0
 
 [node name="GameClocks" type="HBoxContainer" parent="Margin/DragSplit/DragSplit/Settings/Margin/List"]
-margin_top = 321.0
+margin_top = 311.0
 margin_right = 664.0
 margin_bottom = 560.0
 alignment = 1
+script = ExtResource( 10 )
 
 [node name="LeftClock" type="TextureButton" parent="Margin/DragSplit/DragSplit/Settings/Margin/List/GameClocks"]
-margin_left = 65.0
+margin_left = 55.0
 margin_right = 308.0
-margin_bottom = 239.0
-texture_normal = ExtResource( 5 )
+margin_bottom = 249.0
+texture_normal = ExtResource( 12 )
+texture_focused = ExtResource( 11 )
+stretch_mode = 2
 script = ExtResource( 9 )
 
 [node name="Hour" type="Sprite" parent="Margin/DragSplit/DragSplit/Settings/Margin/List/GameClocks/LeftClock"]
@@ -218,15 +250,16 @@ texture = ExtResource( 6 )
 [node name="space" type="Control" parent="Margin/DragSplit/DragSplit/Settings/Margin/List/GameClocks"]
 margin_left = 312.0
 margin_right = 352.0
-margin_bottom = 239.0
+margin_bottom = 249.0
 rect_min_size = Vector2( 40, 0 )
 
 [node name="RightClock" type="TextureButton" parent="Margin/DragSplit/DragSplit/Settings/Margin/List/GameClocks"]
 margin_left = 356.0
-margin_right = 599.0
-margin_bottom = 239.0
-shortcut_in_tooltip = false
-texture_normal = ExtResource( 5 )
+margin_right = 609.0
+margin_bottom = 249.0
+texture_normal = ExtResource( 12 )
+texture_focused = ExtResource( 11 )
+stretch_mode = 2
 script = ExtResource( 9 )
 
 [node name="Hour" type="Sprite" parent="Margin/DragSplit/DragSplit/Settings/Margin/List/GameClocks/RightClock"]
@@ -346,9 +379,14 @@ __meta__ = {
 [node name="NotifySound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="value_changed" from="Margin/DragSplit/DragSplit/Settings/Margin/List/GameLength/SpinBox" to="." method="_on_GameTime_value_changed"]
 [connection signal="pressed" from="Margin/DragSplit/DragSplit/Settings/Margin/List/MatchSetting/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Margin/DragSplit/DragSplit/Settings/Margin/List/MatchSetting/Stop" to="." method="_on_Stop_pressed"]
 [connection signal="pressed" from="Margin/DragSplit/DragSplit/Settings/Margin/List/MatchSetting/NewRule" to="." method="_on_NewRule_pressed"]
+[connection signal="before_click" from="Margin/DragSplit/DragSplit/Settings/Margin/List/GameClocks/LeftClock" to="Margin/DragSplit/DragSplit/Settings/Margin/List/GameClocks" method="stop"]
+[connection signal="pressed" from="Margin/DragSplit/DragSplit/Settings/Margin/List/GameClocks/LeftClock" to="Margin/DragSplit/DragSplit/Settings/Margin/List/GameClocks/LeftClock" method="_on_pressed"]
+[connection signal="before_click" from="Margin/DragSplit/DragSplit/Settings/Margin/List/GameClocks/RightClock" to="Margin/DragSplit/DragSplit/Settings/Margin/List/GameClocks" method="stop"]
+[connection signal="pressed" from="Margin/DragSplit/DragSplit/Settings/Margin/List/GameClocks/RightClock" to="Margin/DragSplit/DragSplit/Settings/Margin/List/GameClocks/RightClock" method="_on_pressed"]
 [connection signal="pressed" from="Margin/DragSplit/Rules/Margin/Split/InfoSplit/Sort" to="Margin/DragSplit/Rules" method="_on_Sort_pressed"]
 [connection signal="pressed" from="Margin/DragSplit/Rules/Margin/Split/Scroll/List/NewRule" to="Margin/DragSplit/Rules" method="_on_NewRule_pressed"]
 [connection signal="confirmed" from="AcceptRule" to="." method="_on_AcceptRule_confirmed"]

@@ -2,6 +2,7 @@ extends Control
 
 onready var in_play: Node = $Margin/DragSplit/DragSplit/InPlay
 onready var rules: Node = $Margin/DragSplit/Rules
+onready var clocks: Node = find_node("GameClocks")
 
 var timer_variation := 15
 var timer_time := 60
@@ -60,13 +61,19 @@ func _on_Start_pressed():
 	rules.start_game()
 	in_play.reset()
 	_new_rule()
+	clocks.reset()
 
 
 func _on_Stop_pressed():
 	$Timer.stop()
+	clocks.stop()
 
 
 func _on_NewRule_pressed():
 	if $Timer.time_left > 0:
 		$Timer.stop()
 		_new_rule()
+
+
+func _on_GameTime_value_changed(value):
+	clocks.time_per_player = value

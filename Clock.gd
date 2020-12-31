@@ -6,6 +6,9 @@ export var time_left = 300
 export var running = false
 
 
+signal before_click()
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -24,3 +27,9 @@ func _process(delta):
 	# Clock should work backwards
 	$Min.rotation_degrees = time_left * 360 / 60
 	$Hour.rotation_degrees = time_left * 360 / (60 * 12)
+
+
+func _on_pressed():
+	var was_running = running
+	emit_signal("before_click")
+	running = !was_running
