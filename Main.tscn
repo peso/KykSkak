@@ -377,8 +377,8 @@ __meta__ = {
 margin_left = 334.0
 margin_right = 384.0
 margin_bottom = 20.0
-text = "Sort"
 size_flags_horizontal = 8
+text = "Sorter"
 
 [node name="Scroll" type="ScrollContainer" parent="Margin/DragSplit/TabContainer/Rules/Margin/Split"]
 margin_top = 24.0
