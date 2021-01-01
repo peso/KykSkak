@@ -1,7 +1,7 @@
 extends Control
 
-onready var in_play: Node = $Margin/DragSplit/DragSplit/InPlay
-onready var rules: Node = $Margin/DragSplit/Rules
+onready var in_play: Node = find_node("InPlay")
+onready var rules: Node = find_node("Rules")
 onready var clocks: Node = find_node("GameClocks")
 onready var rule_progress = find_node("Progress")
 
@@ -14,6 +14,9 @@ func _ready():
 	randomize()
 	$AcceptRule.get_cancel().text = "Decline"
 	$AcceptRule.add_button("Wait").connect("pressed", self, "_on_Wait_pressed")
+	var tab_container = find_node("TabContainer")
+	tab_container.set_tab_title(0,"Regler i spil")
+	tab_container.set_tab_title(1,"Alle regler")
 
 
 func _process(delta: float) -> void:
