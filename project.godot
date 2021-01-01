@@ -26,7 +26,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Chess"
+config/name="KykSkak"
+config/description="KykSkak spilles som almindeligt skak, bortset fra at reglerne hele tiden bliver lavet om."
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
