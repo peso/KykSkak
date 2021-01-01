@@ -3,6 +3,7 @@ extends Control
 onready var in_play: Node = $Margin/DragSplit/DragSplit/InPlay
 onready var rules: Node = $Margin/DragSplit/Rules
 onready var clocks: Node = find_node("GameClocks")
+onready var rule_progress = find_node("Progress")
 
 var timer_variation := 15
 var timer_time := 60
@@ -16,7 +17,7 @@ func _ready():
 
 
 func _process(delta: float) -> void:
-	$Margin/DragSplit/DragSplit/Settings/Margin/List/Progress.value = 100 - $Timer.time_left*100/$Timer.wait_time
+	rule_progress.value = 100 - $Timer.time_left*100/$Timer.wait_time
 
 
 func _on_Timer_timeout():
